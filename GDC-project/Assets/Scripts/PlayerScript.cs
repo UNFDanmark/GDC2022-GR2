@@ -81,7 +81,7 @@ public class PlayerScript : MonoBehaviour
             {
                 print("attack!");
                 transform.position = previousPos;
-                rb.velocity = new Vector3(previousVel.x, -previousVel.y * jumpModifier, previousVel.z);
+                rb.velocity = new Vector3(previousVel.x, Mathf.Max(-previousVel.y * jumpModifier, weakJump), previousVel.z);
                 Destroy(other.transform.parent.gameObject);
             }
             else

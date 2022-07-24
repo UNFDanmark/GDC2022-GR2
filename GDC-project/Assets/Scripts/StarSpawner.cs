@@ -14,9 +14,13 @@ public class StarSpawner : MonoBehaviour
 
     public int startStarAmount = 4;
 
-    float lastStarSpawn = 0f;
+    public float minXDistanceBetweenStars = 2f;
+    float lastStarSpawnTime = 0f;
 
     public GameObject prefab;
+
+
+    GameObject lastStarSpawned = null;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +36,10 @@ public class StarSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time - lastStarSpawn >= currentSpawnDelay)
+        if(Time.time - lastStarSpawnTime >= currentSpawnDelay)
         {
             SpawnStar(transform.position.y);
-            lastStarSpawn = Time.time;
+            lastStarSpawnTime = Time.time;
 
             currentSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
         }
@@ -43,9 +47,26 @@ public class StarSpawner : MonoBehaviour
 
     void SpawnStar(float yPos)
     {
-        float xPos = Random.Range(transform.position.x - width / 2, transform.position.x + width / 2);
+        float xPos = 0;
+
+        if (lastStarSpawned == null)
+        {
+            xPos = Random.Range(transform.position.x - width / 2, transform.position.x + width / 2);
+        }
+        else
+        {
+            while (true)
+            {
+                xPos = Random.Range(transform.position.x - width / 2, transform.position.x + width / 2);
+                float xDistanceToLast = Mathf.Abs(xPos - lastStarSpawned.transform.position.x);
+                if (xDistanceToLast >= minXDistanceBetweenStars)
+                {
+                    break;
+                }
+            }
+        }
         Vector3 spawnPos = new Vector3(xPos , yPos, transform.position.z);
-        Instantiate(prefab, spawnPos, Quaternion.identity);
+        lastStarSpawned = Instantiate(prefab, spawnPos, Quaternion.identity);
     }
 
     private void OnDrawGizmosSelected()

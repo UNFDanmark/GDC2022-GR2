@@ -580,6 +580,7 @@ MonoBehaviour:
   minSpawnDelay: 2
   maxSpawnDelay: 3
   startStarAmount: 6
+  minXDistanceBetweenStars: 2
   prefab: {fileID: 3956056367942764015, guid: 7423e3ca65c1f914686485fe4ed251c6, type: 3}
 --- !u!1 &1263654188
 GameObject:
@@ -808,7 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startJumpForce: 600
   moveSpeed: 8
-  jumpModifier: 1.12
+  jumpModifier: 1
   startAttackSpeed: 5
-  weakJump: 6
+  weakJump: 4
   isAttacking: 0
