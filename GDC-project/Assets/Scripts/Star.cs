@@ -7,6 +7,7 @@ public class Star : MonoBehaviour
     public float speed; 
 
     Rigidbody rb;
+    public GameObject deathEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,6 @@ public class Star : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("Ouchie");
+        if(deathEffect != null) Instantiate(deathEffect, transform.position, Quaternion.identity);
     }
 }

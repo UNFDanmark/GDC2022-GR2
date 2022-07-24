@@ -5,19 +5,20 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public float defaultGravity = -13f;
-    public float startJumpForce = 500f;
-    public float moveSpeed = 5f;
-    public float jumpModifier = 1f;
-    public float startAttackSpeed = 1f;
+    public float startJumpForce = 600f;
+    public float moveSpeed = 10f;
+    public float jumpModifier = 1.25f;
+    public float startAttackSpeed = 5f;
     public float attackGravityMultiplier = 3f;
-    public float weakJump = 1f;
-
+    public float weakJump = 4f;
+    public float starBottomBounceback = -5f;
     Vector3 previousVel;
     Vector3 previousPos;
 
     bool firstJump = true;
     bool starHit = false;
-    public bool isAttacking = false;
+    bool isAttacking = false;
+    
 
     //if hit from above with attack, jump high, destroy star
     //if hit from above without attack lil jump (enough to try again), dont destroy star
@@ -103,7 +104,7 @@ public class PlayerScript : MonoBehaviour
         }
         else if (other.gameObject.tag == "StarBottom")
         {
-            Debug.Log("U suck");
+            rb.velocity = new Vector3(rb.velocity.x, starBottomBounceback, rb.velocity.z);
         }
     }
 
