@@ -19,7 +19,6 @@ public class StarSpawner : MonoBehaviour
 
     public GameObject prefab;
 
-
     GameObject lastStarSpawned = null;
 
     // Start is called before the first frame update

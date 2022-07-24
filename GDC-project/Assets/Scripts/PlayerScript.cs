@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public float defaultGravity = -13f;
     public float startJumpForce = 500f;
     public float moveSpeed = 5f;
     public float jumpModifier = 1f;
-    //public float HKForce = 1f;
     public float startAttackSpeed = 1f;
+    public float attackGravityMultiplier = 3f;
     public float weakJump = 1f;
 
     Vector3 previousVel;
@@ -25,15 +26,19 @@ public class PlayerScript : MonoBehaviour
 
     Rigidbody rb;
 
+    float lastSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
+        Physics.gravity = new Vector3(0, defaultGravity, 0);
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("w")) print(rb.velocity.y - lastSpeed);
         //Save current speed and position
         previousVel = rb.velocity;
         previousPos = transform.position;
@@ -41,6 +46,8 @@ public class PlayerScript : MonoBehaviour
         //Move and attack
         MoveHandler();
         AttackHandler();
+
+        lastSpeed = rb.velocity.y;
     }
 
     void MoveHandler()
@@ -65,9 +72,11 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, -startAttackSpeed, rb.velocity.z); //Sets the vertical speed to attack speed
             isAttacking = true;
+            Physics.gravity = new Vector3(0, attackGravityMultiplier * defaultGravity, 0);
         }
         else if (Input.GetKeyUp("s"))
         {
+            Physics.gravity = new Vector3(0, defaultGravity, 0);
             isAttacking = false;
         }
     }
