@@ -96,6 +96,7 @@ public class PlayerScript : MonoBehaviour
         else if (other.gameObject.tag == "StarBottom")
         {
             rb.velocity = new Vector3(rb.velocity.x, starBottomBounceback, rb.velocity.z);
+            isAttacking = false;
         }
     }
 
