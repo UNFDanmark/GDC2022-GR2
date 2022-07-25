@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float maxSpeed = 10f;
     public float speed = 5f;
     public float defaultGravity = -13f;
     public float startJumpForce = 600f;
@@ -23,8 +22,6 @@ public class PlayerScript : MonoBehaviour
 
     Rigidbody rb;
 
-    float lastSpeed;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +32,6 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w")) print(rb.velocity.y - lastSpeed);
         //Save current speed and position
         previousVel = rb.velocity;
         previousPos = transform.position;
@@ -43,8 +39,6 @@ public class PlayerScript : MonoBehaviour
         //Move and attack
         MoveHandler();
         AttackHandler();
-
-        lastSpeed = rb.velocity.y;
     }
 
     void MoveHandler()
@@ -52,7 +46,7 @@ public class PlayerScript : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         float xVelocity = speed * moveInput * Time.deltaTime;
 
-        rb.velocity = new Vector3(xVelocity * Time.deltaTime, rb.velocity.y, 0);
+        transform.Translate(new Vector3(xVelocity, 0, 0));
 
         bool wantsToJump = Input.GetButtonDown("Jump");
 
