@@ -20,9 +20,8 @@ public class StarSpawner : MonoBehaviour
     public GameObject prefab;
 
     GameObject lastStarSpawned;
+    
     GameObject starsParent;
-
-    List<GameObject> starClusters;
 
     private void Awake()
     {
@@ -35,7 +34,7 @@ public class StarSpawner : MonoBehaviour
         {
             float minY = transform.position.y + startSpawnHeightOffset - startSpawnHeight / 2;
             float maxY = transform.position.y + startSpawnHeightOffset + startSpawnHeight / 2;
-            SpawnStarCluster(Random.Range(minY, maxY));
+            SpawnStar(Random.Range(minY, maxY));
         }
     }
 
@@ -44,14 +43,14 @@ public class StarSpawner : MonoBehaviour
     {
         if(Time.time - lastStarSpawnTime >= currentSpawnDelay)
         {
-            SpawnStarCluster(transform.position.y);
+            SpawnStar(transform.position.y);
             lastStarSpawnTime = Time.time;
 
             currentSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
         }
     }
 
-    void SpawnStarCluster(float yPos)
+    void SpawnStar(float yPos)
     {
         
         float xPos = 0;
@@ -75,9 +74,6 @@ public class StarSpawner : MonoBehaviour
         Vector3 spawnPos = new Vector3(xPos , yPos, transform.position.z);
         //lastStarSpawned = Instantiate(prefab, spawnPos, Quaternion.identity);
         lastStarSpawned = Instantiate(prefab, spawnPos, Quaternion.identity, starsParent.transform);
-
-        //GameObject starCluster = starClusters[Random.Range(0, starClusters.Count)];
-        //Instantiate(starCluster, new Vector3(0,0,0), Quaternion.identity);
     }
 
     private void OnDrawGizmosSelected()

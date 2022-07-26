@@ -16,8 +16,10 @@ public class Star : MonoBehaviour
         rb.velocity = Vector3.down * speed;
     }
 
-    private void OnDestroy()
+    public void DestroyStar(bool playEffect)
     {
-        if(deathEffect != null) Instantiate(deathEffect, transform.position, Quaternion.identity);
+        if (deathEffect != null && playEffect) Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

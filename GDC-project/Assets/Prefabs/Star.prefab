@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 3608868986246828560, guid: a279227447a998e4fa047848a3294618,
+    type: 3}
 --- !u!1 &3513707101167388508
 GameObject:
   m_ObjectHideFlags: 0
