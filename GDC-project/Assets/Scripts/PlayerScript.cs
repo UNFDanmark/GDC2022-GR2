@@ -46,7 +46,8 @@ public class PlayerScript : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         float xVelocity = speed * moveInput * Time.deltaTime;
 
-        transform.Translate(new Vector3(xVelocity, 0, 0));
+        //problem her (noget med velocity skal til x og y i stedet for 0). Problem fordi vi luge ny fortæller den ikke at bevæge sig i starten og tygndekragt holdeer den nede??
+       rb.velocity = new Vector3(xVelocity, 0, 0);
 
         bool wantsToJump = Input.GetButtonDown("Jump");
 
