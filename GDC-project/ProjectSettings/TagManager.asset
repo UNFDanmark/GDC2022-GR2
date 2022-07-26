@@ -8,6 +8,7 @@ TagManager:
   - StarTop
   - StarBottom
   - ScoreText
+  - Stars
   layers:
   - Default
   - TransparentFX

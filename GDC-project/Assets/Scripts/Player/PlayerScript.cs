@@ -23,13 +23,22 @@ public class PlayerScript : MonoBehaviour
 
     PointsManager pm;
     Rigidbody rb;
+    SceneHandler sceneHandler;
+
+    public AnimationCurve speedCurve;
+
+
+    private void Awake()
+    {
+        sceneHandler = FindObjectOfType<SceneHandler>();
+        rb = GetComponent<Rigidbody>();
+        pm = FindObjectOfType<PointsManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         Physics.gravity = new Vector3(0, defaultGravity, 0);
-        rb = GetComponent<Rigidbody>();
-        pm = FindObjectOfType<PointsManager>();
 
         screenHeight = 2f * Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
@@ -116,7 +125,14 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            firstJump = true;
+            if (!starHit)
+            {
+                firstJump = true;
+            }
+            else
+            {
+                sceneHandler.RestartScene();
+            }
         }
     }
 }
