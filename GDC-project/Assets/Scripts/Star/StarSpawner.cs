@@ -20,10 +20,15 @@ public class StarSpawner : MonoBehaviour
     public GameObject prefab;
 
     GameObject lastStarSpawned;
+    GameObject starsParent;
 
     List<GameObject> starClusters;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        starsParent = GameObject.FindWithTag("Stars");
+    }
+
     void Start()
     {
         for (int i = 0; i < startStarAmount; i++)
@@ -68,7 +73,8 @@ public class StarSpawner : MonoBehaviour
             }
         }
         Vector3 spawnPos = new Vector3(xPos , yPos, transform.position.z);
-        lastStarSpawned = Instantiate(prefab, spawnPos, Quaternion.identity);
+        //lastStarSpawned = Instantiate(prefab, spawnPos, Quaternion.identity);
+        lastStarSpawned = Instantiate(prefab, spawnPos, Quaternion.identity, starsParent.transform);
 
         //GameObject starCluster = starClusters[Random.Range(0, starClusters.Count)];
         //Instantiate(starCluster, new Vector3(0,0,0), Quaternion.identity);
