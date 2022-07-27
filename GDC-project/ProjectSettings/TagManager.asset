@@ -10,6 +10,7 @@ TagManager:
   - ScoreText
   - Stars
   - Soundguy
+  - HighscoreText
   layers:
   - Default
   - TransparentFX

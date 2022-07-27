@@ -103,6 +103,7 @@ public class PlayerScript : MonoBehaviour
     {
         GameObject.FindWithTag("Soundguy").GetComponent<AudioSource>().Stop();
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position);
+        pm.HandleDeath();
         Invoke("GameOver", gameOverDelay);
     }
 
