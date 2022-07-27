@@ -6,7 +6,7 @@ public class StarDeathEffect : MonoBehaviour
 {
     AudioSource audioSource;
 
-    List<AudioClip> audioclips;
+    public List<AudioClip> audioclips;
 
     private void Awake()
     {

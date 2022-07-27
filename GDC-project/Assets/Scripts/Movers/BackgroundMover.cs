@@ -24,7 +24,7 @@ public class BackgroundMover : MonoBehaviour
 
     void Update()
     {
-        if(cam.transform.position.y - camHeight - 2 > bottomPlane.transform.position.y + 10f * planeScale)
+        if(cam.transform.position.y - camHeight > bottomPlane.transform.position.y + 5f * planeScale)
         {
             float newYPos = topPlane.transform.position.y + 10f * planeScale;
             bottomPlane.transform.position = new Vector3(transform.position.x, newYPos, 2); //doesnt work when using transform.positio.z as 3rd parameter???

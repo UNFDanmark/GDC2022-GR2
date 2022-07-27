@@ -15,7 +15,7 @@ public class PlayerDeathZone : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            sceneHandler.LoadSceneIndex(2);
+            other.GetComponent<PlayerScript>().Die();
         }
     }
 }
