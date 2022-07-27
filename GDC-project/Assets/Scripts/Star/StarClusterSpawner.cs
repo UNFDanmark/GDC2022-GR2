@@ -5,12 +5,22 @@ using UnityEngine;
 public class StarClusterSpawner : MonoBehaviour
 {
     public List<GameObject> starClusters;
+    Transform player;
+    Transform starsParent;
 
     public int firstClusterIndex = 0;
+    public float starClusterHeight = 100f;
+    public float firstClusterSpawnHeight; //Relative to player
+
+    private void Awake()
+    {
+        player = FindObjectOfType<PlayerScript>().transform;
+        starsParent = GameObject.FindWithTag("Stars").transform;
+    }
 
     private void Start()
     {
-        SpawnStarcluster(firstClusterIndex);
+        SpawnStartCluster(firstClusterIndex);
     }
 
     private void Update()
@@ -24,9 +34,9 @@ public class StarClusterSpawner : MonoBehaviour
         Instantiate(starCluster, new Vector3(0,0,0), Quaternion.identity);
     }
 
-    void SpawnStarcluster(int index)
+    void SpawnStartCluster(int index)
     {
         GameObject starCluster = starClusters[index];
-        Instantiate(starCluster, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(starCluster, player.position + new Vector3(0, firstClusterSpawnHeight, 0), Quaternion.identity, starsParent);
     }
 }
