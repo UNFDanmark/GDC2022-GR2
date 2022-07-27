@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     public AudioClip attackSFX;
     public AudioClip deathSFX;
     public float volume;
+    public bool holdToAttack = true;
 
     bool firstJump = true;
     bool starHit = false;
@@ -87,7 +88,7 @@ public class PlayerScript : MonoBehaviour
             Physics.gravity = new Vector3(0, attackGravityMultiplier * defaultGravity, 0);
             AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position, volume);
         }
-        else if (Input.GetKeyUp("s"))
+        else if (Input.GetKeyUp("s") && holdToAttack)
         {
             CancelAttack();
         }
