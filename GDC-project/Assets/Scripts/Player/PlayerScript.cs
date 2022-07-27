@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     bool isAttacking = false;
 
     public GameObject highscoreSaver;
+    public List<GameObject> stillframes;
 
     [SerializeField] PointsManager pm;
     Rigidbody rb;
@@ -55,6 +56,7 @@ public class PlayerScript : MonoBehaviour
         //Move and attack
         MoveHandler();
         AttackHandler();
+        HandleVisuals();
     }
 
     void MoveHandler()
@@ -88,6 +90,28 @@ public class PlayerScript : MonoBehaviour
         else if (Input.GetKeyUp("s") && holdToAttack)
         {
             CancelAttack();
+        }
+    }
+
+    void HandleVisuals()
+    {
+        if(isAttacking)
+        {
+            stillframes[0].SetActive(false); //normal or rising
+            stillframes[1].SetActive(true); //attacking
+            stillframes[2].SetActive(false); //falling
+        }
+        else if(rb.velocity.y < 0)
+        {
+            stillframes[0].SetActive(false);
+            stillframes[1].SetActive(false);
+            stillframes[2].SetActive(true);
+        }
+        else
+        {
+            stillframes[0].SetActive(true);
+            stillframes[1].SetActive(false);
+            stillframes[2].SetActive(false);
         }
     }
 
@@ -149,7 +173,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                GameOver();
+                Die();
             }
 
             //rb.velocity = new Vector3(rb.velocity.x, 30f, rb.velocity.z);
