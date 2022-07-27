@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     Vector3 previousPos;
     float screenHeight;
     float screenWidth;
+    public AudioClip attackSFX;
 
     bool firstJump = true;
     bool starHit = false;
@@ -26,7 +27,6 @@ public class PlayerScript : MonoBehaviour
     SceneHandler sceneHandler;
 
     public AnimationCurve speedCurve;
-
 
     private void Awake()
     {
@@ -82,6 +82,7 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, -startAttackSpeed, rb.velocity.z); //Sets the vertical speed to attack speed
             isAttacking = true;
             Physics.gravity = new Vector3(0, attackGravityMultiplier * defaultGravity, 0);
+            AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position);
         }
         else if (Input.GetKeyUp("s"))
         {
@@ -133,6 +134,8 @@ public class PlayerScript : MonoBehaviour
             {
                 sceneHandler.LoadSceneIndex(2);
             }
+
+            //rb.velocity = new Vector3(rb.velocity.x, 30f, rb.velocity.z);
         }
     }
 }

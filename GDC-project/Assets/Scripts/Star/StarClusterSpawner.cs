@@ -10,6 +10,7 @@ public class StarClusterSpawner : MonoBehaviour
 
     public int firstClusterIndex = 0;
     public float starClusterHeight = 100f;
+    public float firstClusterSpawnHeight; //Relative to player
 
     private void Awake()
     {
@@ -19,8 +20,7 @@ public class StarClusterSpawner : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(0, player.position.y + starClusterHeight/2,0);
-        SpawnStarcluster(firstClusterIndex);
+        SpawnStartCluster(firstClusterIndex);
     }
 
     private void Update()
@@ -34,9 +34,9 @@ public class StarClusterSpawner : MonoBehaviour
         Instantiate(starCluster, new Vector3(0,0,0), Quaternion.identity);
     }
 
-    void SpawnStarcluster(int index)
+    void SpawnStartCluster(int index)
     {
         GameObject starCluster = starClusters[index];
-        Instantiate(starCluster, transform.position, Quaternion.identity, starsParent);
+        Instantiate(starCluster, player.position + new Vector3(0, firstClusterSpawnHeight, 0), Quaternion.identity, starsParent);
     }
 }
