@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class LoopSecondAudioClip : MonoBehaviour
 {
-    public AudioClip startingAudioClip;
-    public AudioClip loopedAudioClip;
-
-    AudioSource audioSource;
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    public AudioSource startingAudioSource;
+    public AudioSource loopedAudioSource;
     
     void Start()
     {
-        audioSource.clip = startingAudioClip;
-        audioSource.Play();
+        startingAudioSource.Play();
     }
 
     void Update()
     {
-        if(audioSource.clip == startingAudioClip && !audioSource.isPlaying)
+        if (!startingAudioSource.isPlaying && !loopedAudioSource.isPlaying)
         {
-            audioSource.clip = loopedAudioClip;
-            audioSource.loop = true;
+            loopedAudioSource.Play();
         }
     }
 }
