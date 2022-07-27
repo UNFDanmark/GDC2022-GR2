@@ -1977,6 +1977,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
+      propertyPath: highscoreSaver
+      value: 
+      objectReference: {fileID: 8989051674929795677, guid: 4f5d8ec984f0e7049b879ad31ddec182,
+        type: 3}
+    - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
+        type: 3}
       propertyPath: startJumpForce
       value: 1000
       objectReference: {fileID: 0}
