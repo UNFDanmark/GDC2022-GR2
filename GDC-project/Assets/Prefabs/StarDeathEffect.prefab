@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioclips:
-  - {fileID: 8300000, guid: 569b7cc661f4f4749ac6ad067742fe7f, type: 3}
-  - {fileID: 8300000, guid: 302bc696d0a5fcb4baadac4dd80406c7, type: 3}
-  - {fileID: 8300000, guid: 7c86397418729f54e9a094fe2f908c98, type: 3}
-  - {fileID: 8300000, guid: b8d5d4f833803df439124a7d8fc8116c, type: 3}
-  - {fileID: 8300000, guid: 7091a0610f06ec24fa9389a64f76f6de, type: 3}
+  - {fileID: 8300000, guid: 8b77a52e646001c4a931a68bd543eda0, type: 3}
+  - {fileID: 8300000, guid: 0c1141e30e51b114ba07db8f2d21ef32, type: 3}
+  - {fileID: 8300000, guid: b5a38a4fb3d55d84f986c1a1cbd8cb2c, type: 3}
+  - {fileID: 8300000, guid: f586f07b2b2925843b0e4085f37689a8, type: 3}
+  - {fileID: 8300000, guid: 73d317ae4044eb64f9443f9677ae2c04, type: 3}
