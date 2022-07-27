@@ -26,22 +26,19 @@ public class PlayerScript : MonoBehaviour
     bool starHit = false;
     bool isAttacking = false;
 
-    PointsManager pm;
+    public GameObject highscoreSaver;
+
+    [SerializeField] PointsManager pm;
     Rigidbody rb;
     SceneHandler sceneHandler;
 
-    public AnimationCurve speedCurve;
 
-    private void Awake()
+    void Start()
     {
         sceneHandler = FindObjectOfType<SceneHandler>();
         rb = GetComponent<Rigidbody>();
         pm = FindObjectOfType<PointsManager>();
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         Physics.gravity = new Vector3(0, defaultGravity, 0);
 
         screenHeight = 2f * Camera.main.orthographicSize;
@@ -97,13 +94,17 @@ public class PlayerScript : MonoBehaviour
     void CancelAttack()
     {
         Physics.gravity = new Vector3(0, defaultGravity, 0);
-            isAttacking = false;
+        isAttacking = false;
     }
 
     public void Die()
     {
         GameObject.FindWithTag("Soundguy").GetComponent<AudioSource>().Stop();
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position);
+        //pm.SetTextsAsNull();
+        GameObject scoreSaver = Instantiate(highscoreSaver);
+        scoreSaver.GetComponent<HighscoreSaver>().score = pm.GetScore();
+        scoreSaver.GetComponent<HighscoreSaver>().highscore = pm.GetHighscore();
         Invoke("GameOver", gameOverDelay);
     }
 
