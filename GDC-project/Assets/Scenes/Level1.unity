@@ -1953,7 +1953,7 @@ PrefabInstance:
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
       propertyPath: volume
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
@@ -1964,7 +1964,7 @@ PrefabInstance:
         type: 3}
       propertyPath: attackSFX
       value: 
-      objectReference: {fileID: 8300000, guid: e3279d72afeb87841a71244d1f8d0f18, type: 3}
+      objectReference: {fileID: 8300000, guid: edd89573276bd0d4895b06ebb85aaf64, type: 3}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
       propertyPath: holdToAttack
