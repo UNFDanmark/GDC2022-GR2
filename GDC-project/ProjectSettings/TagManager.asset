@@ -9,6 +9,7 @@ TagManager:
   - StarBottom
   - ScoreText
   - Stars
+  - Soundguy
   layers:
   - Default
   - TransparentFX

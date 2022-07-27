@@ -16,7 +16,9 @@ public class PlayerScript : MonoBehaviour
     Vector3 previousPos;
     float screenHeight;
     float screenWidth;
+    public float gameOverDelay = 2f;
     public AudioClip attackSFX;
+    public AudioClip deathSFX;
 
     bool firstJump = true;
     bool starHit = false;
@@ -26,7 +28,7 @@ public class PlayerScript : MonoBehaviour
     Rigidbody rb;
     SceneHandler sceneHandler;
 
-    public AnimationCurve speedCurve;
+
 
     private void Awake()
     {
@@ -96,6 +98,18 @@ public class PlayerScript : MonoBehaviour
             isAttacking = false;
     }
 
+    public void Die()
+    {
+        GameObject.FindWithTag("Soundguy").GetComponent<AudioSource>().Stop();
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position);
+        Invoke("GameOver", gameOverDelay);
+    }
+
+    void GameOver()
+    {
+        sceneHandler.LoadSceneIndex(2);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "StarTop")
@@ -132,7 +146,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                sceneHandler.LoadSceneIndex(2);
+                Die();
             }
 
             //rb.velocity = new Vector3(rb.velocity.x, 30f, rb.velocity.z);

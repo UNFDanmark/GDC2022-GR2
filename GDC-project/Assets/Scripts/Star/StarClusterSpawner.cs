@@ -35,7 +35,7 @@ public class StarClusterSpawner : MonoBehaviour
 
     void SpawnStarcluster()
     {
-        Vector3 spawnPos = lastStarCluster.transform.position + new Vector3(0, starClusterHeight + 5f, 0); 
+        Vector3 spawnPos = lastStarCluster.transform.position + new Vector3(0, starClusterHeight, 0); 
 
         GameObject starCluster = starClusters[Random.Range(0, starClusters.Count)];
         lastStarCluster = Instantiate(starCluster, spawnPos, Quaternion.identity);

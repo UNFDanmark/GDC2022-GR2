@@ -1747,9 +1747,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: a3a4cde987e4ce942a2773e56114ef66, type: 3}
+    - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
+        type: 3}
       propertyPath: attackSFX
       value: 
       objectReference: {fileID: 8300000, guid: e45cc6fc87a6a184ea7aa8117aa42bbf, type: 3}
+    - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
+        type: 3}
+      propertyPath: gameOverDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
       propertyPath: startJumpForce
