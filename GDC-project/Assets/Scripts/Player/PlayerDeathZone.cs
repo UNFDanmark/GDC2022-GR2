@@ -15,7 +15,7 @@ public class PlayerDeathZone : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            sceneHandler.RestartScene();
+            sceneHandler.LoadSceneIndex(2);
         }
     }
 }

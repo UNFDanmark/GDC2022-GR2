@@ -131,7 +131,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                sceneHandler.RestartScene();
+                sceneHandler.LoadSceneIndex(2);
             }
         }
     }

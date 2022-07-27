@@ -17,4 +17,9 @@ public class SceneHandler : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void LoadSceneIndex(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
 }

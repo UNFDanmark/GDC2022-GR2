@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6947917208254384209}
   - component: {fileID: 4496623451651938554}
-  - component: {fileID: 7432993147200632395}
+  - component: {fileID: 6325675206402506341}
   m_Layer: 0
   m_Name: StarDeathEffect
   m_TagString: Untagged
@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1269c2c4cba726b4bbe06cdd233700fa, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -129,7 +129,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7432993147200632395
+--- !u!114 &6325675206402506341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,6 +138,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3608868986246828560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39cb8318f5c5bec4baa0cd7ae0a8a04f, type: 3}
+  m_Script: {fileID: 11500000, guid: b78e72ae208d41a489e517fc46889347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
