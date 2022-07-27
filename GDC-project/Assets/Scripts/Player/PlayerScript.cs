@@ -16,7 +16,10 @@ public class PlayerScript : MonoBehaviour
     Vector3 previousPos;
     float screenHeight;
     float screenWidth;
+    public float gameOverDelay = 2.0f;
     public AudioClip attackSFX;
+    public AudioClip deathSFX;
+    public float volume;
 
     bool firstJump = true;
     bool starHit = false;
@@ -82,7 +85,7 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, -startAttackSpeed, rb.velocity.z); //Sets the vertical speed to attack speed
             isAttacking = true;
             Physics.gravity = new Vector3(0, attackGravityMultiplier * defaultGravity, 0);
-            AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position, volume);
         }
         else if (Input.GetKeyUp("s"))
         {
@@ -94,6 +97,18 @@ public class PlayerScript : MonoBehaviour
     {
         Physics.gravity = new Vector3(0, defaultGravity, 0);
             isAttacking = false;
+    }
+
+    public void Die()
+    {
+        GameObject.FindWithTag("Soundguy").GetComponent<AudioSource>().Stop();
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position);
+        Invoke("GameOver", gameOverDelay);
+    }
+
+    void GameOver()
+    {
+        sceneHandler.LoadSceneIndex(2);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -132,7 +147,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                sceneHandler.LoadSceneIndex(2);
+                GameOver();
             }
 
             //rb.velocity = new Vector3(rb.velocity.x, 30f, rb.velocity.z);

@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 1012681056}
   m_Layer: 0
   m_Name: Soundguy
-  m_TagString: Untagged
+  m_TagString: Soundguy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1358,7 +1358,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 25, y: 1, z: 1}
+  m_Size: {x: 30, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1624375206
 MonoBehaviour:
@@ -1747,9 +1747,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: a3a4cde987e4ce942a2773e56114ef66, type: 3}
+    - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
+        type: 3}
       propertyPath: attackSFX
       value: 
       objectReference: {fileID: 8300000, guid: e45cc6fc87a6a184ea7aa8117aa42bbf, type: 3}
+    - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
+        type: 3}
+      propertyPath: gameOverDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
+        type: 3}
+      propertyPath: startJumpForce
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 503967881917179050, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
       propertyPath: m_RootOrder

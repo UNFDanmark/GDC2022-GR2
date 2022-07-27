@@ -12,6 +12,8 @@ public class StarClusterSpawner : MonoBehaviour
     public float starClusterHeight = 100f;
     public float firstClusterSpawnHeight; //Relative to player
 
+    GameObject lastStarCluster;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerScript>().transform;
@@ -25,18 +27,23 @@ public class StarClusterSpawner : MonoBehaviour
 
     private void Update()
     {
-        
+        if(player.position.y > lastStarCluster.transform.position.y + starClusterHeight/2)
+        {
+            SpawnStarcluster();
+        }
     }
 
     void SpawnStarcluster()
     {
+        Vector3 spawnPos = lastStarCluster.transform.position + new Vector3(0, starClusterHeight, 0); 
+
         GameObject starCluster = starClusters[Random.Range(0, starClusters.Count)];
-        Instantiate(starCluster, new Vector3(0,0,0), Quaternion.identity);
+        lastStarCluster = Instantiate(starCluster, spawnPos, Quaternion.identity, starsParent);
     }
 
     void SpawnStartCluster(int index)
     {
         GameObject starCluster = starClusters[index];
-        Instantiate(starCluster, player.position + new Vector3(0, firstClusterSpawnHeight, 0), Quaternion.identity, starsParent);
+        lastStarCluster = Instantiate(starCluster, player.position + new Vector3(0, firstClusterSpawnHeight, 0), Quaternion.identity, starsParent);
     }
 }
