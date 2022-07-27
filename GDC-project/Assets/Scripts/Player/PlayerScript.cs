@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     float screenHeight;
     float screenWidth;
     public AudioClip attackSFX;
+    public float volume;
 
     bool firstJump = true;
     bool starHit = false;
@@ -82,7 +83,7 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, -startAttackSpeed, rb.velocity.z); //Sets the vertical speed to attack speed
             isAttacking = true;
             Physics.gravity = new Vector3(0, attackGravityMultiplier * defaultGravity, 0);
-            AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position, volume);
         }
         else if (Input.GetKeyUp("s"))
         {
