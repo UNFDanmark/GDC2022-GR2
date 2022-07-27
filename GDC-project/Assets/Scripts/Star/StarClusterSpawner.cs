@@ -27,7 +27,7 @@ public class StarClusterSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(Mathf.Abs(player.position.y - lastStarCluster.transform.position.y) > starClusterHeight/2)
+        if(player.position.y > lastStarCluster.transform.position.y + starClusterHeight/2)
         {
             SpawnStarcluster();
         }
@@ -38,7 +38,7 @@ public class StarClusterSpawner : MonoBehaviour
         Vector3 spawnPos = lastStarCluster.transform.position + new Vector3(0, starClusterHeight, 0); 
 
         GameObject starCluster = starClusters[Random.Range(0, starClusters.Count)];
-        lastStarCluster = Instantiate(starCluster, spawnPos, Quaternion.identity);
+        lastStarCluster = Instantiate(starCluster, spawnPos, Quaternion.identity, starsParent);
     }
 
     void SpawnStartCluster(int index)
