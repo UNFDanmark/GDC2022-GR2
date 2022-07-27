@@ -1763,7 +1763,7 @@ MonoBehaviour:
   starClusters:
   - {fileID: 7765008325290483142, guid: b838f02468c8d324baa5ab4bb7696338, type: 3}
   - {fileID: 8242526757249824751, guid: 5510beb71d188964a8a37dbd86288876, type: 3}
-  firstClusterIndex: 0
+  firstClusterIndex: 1
   starClusterHeight: 100
   firstClusterSpawnHeight: 3
 --- !u!1 &1860923587
@@ -1953,7 +1953,7 @@ PrefabInstance:
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
       propertyPath: volume
-      value: 0.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
@@ -1968,7 +1968,7 @@ PrefabInstance:
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
       propertyPath: holdToAttack
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
