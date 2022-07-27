@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 1717597400}
   m_Layer: 5
   m_Name: HighscoreText
-  m_TagString: ScoreText
+  m_TagString: HighscoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Highscore: '
+  m_text: 'Highscore: Nan'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1824,7 +1824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:'
+  m_text: 'Score: Nan'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1960,6 +1960,11 @@ PrefabInstance:
       propertyPath: attackSFX
       value: 
       objectReference: {fileID: 8300000, guid: e45cc6fc87a6a184ea7aa8117aa42bbf, type: 3}
+    - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
+        type: 3}
+      propertyPath: holdToAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 503967881917179049, guid: b1bb4c65be4486d4d8c41258e0d05084,
         type: 3}
       propertyPath: gameOverDelay

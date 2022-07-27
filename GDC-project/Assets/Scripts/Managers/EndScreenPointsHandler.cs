@@ -5,26 +5,48 @@ using TMPro;
 
 public class EndScreenPointsHandler : MonoBehaviour
 {
-    TextMeshProUGUI scoreText;
-    TextMeshProUGUI highscoreText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highscoreText;
+    public List<ParticleSystem> particleSystems;
 
-    PointsManager pointsHandler;
+
+    PointsManager pointsManager;
 
     void Awake()
     {
-        pointsHandler = FindObjectOfType<PointsManager>();
+        pointsManager = FindObjectOfType<PointsManager>();
     }
 
     void Start()
     {
-        int score = pointsHandler.GetScore();
-        int highscore = pointsHandler.GetHighscore();
+        if (pointsManager == null)
+        {
+            Debug.LogError("No PointsManager found. Try launching the game from the start- or game screen");
+            return;
+        }
 
+        int score = pointsManager.GetScore();
+        int highscore = pointsManager.GetHighscore();
 
+        scoreText.text = "Score: " + score;
+
+        if (score > highscore)
+        {
+            highscoreText.text = "New Highscore: " + highscore;
+        }
+        else
+        {
+            highscoreText.text = "Old Highscore: " + highscore;
+        }
 
         if(score > highscore)
         {
-            
+            foreach(ParticleSystem p in particleSystems)
+            {
+                p.Play();
+            }
+
+            pointsManager.SetScoreAsHighscore();
         }
     }
 }
