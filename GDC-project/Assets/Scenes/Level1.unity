@@ -1941,7 +1941,7 @@ MonoBehaviour:
   starClusters:
   - {fileID: 7765008325290483142, guid: b838f02468c8d324baa5ab4bb7696338, type: 3}
   - {fileID: 8242526757249824751, guid: 5510beb71d188964a8a37dbd86288876, type: 3}
-  firstClusterIndex: 1
+  firstClusterIndex: 0
   starClusterHeight: 100
   firstClusterSpawnHeight: 3
 --- !u!1 &1860923587
