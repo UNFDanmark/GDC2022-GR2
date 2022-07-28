@@ -1,0 +1,4 @@
+Tag med på en rejse gennem rummet, hvor du styrter ned i stjernerne, og som en hoppebold, suser op til nye højder.
+
+I dette 2D vertical scroller, spiller du som en nomade der kæmper sig igennem nattehimlen. Spilleren kan hoppe fra stjerne til stjerne, ved at styrtdykke ned i dem og bruge deres eksplosion til at skyde sig selv endnu højere end nogensinde før.
+At spille sikkert kan kun få dig så langt, for jo længere du når at falde, jo højere kan du flyve.
