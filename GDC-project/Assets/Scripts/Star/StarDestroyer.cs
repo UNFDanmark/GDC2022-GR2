@@ -15,9 +15,9 @@ public class StarDestroyer : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.y < camTransform.position.y - cam.orthographicSize - 2)
+        if(transform.position.y < camTransform.position.y - cam.orthographicSize - 4)
         {
-            float newY = camTransform.position.y - cam.orthographicSize - 2;
+            float newY = camTransform.position.y - cam.orthographicSize - 4;
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         }
     }
