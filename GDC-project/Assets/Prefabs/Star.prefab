@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2527417018279287358}
   - component: {fileID: 2527417018279287359}
   - component: {fileID: 2527417018279287356}
-  - component: {fileID: 7238362849144102165}
+  - component: {fileID: -2741835480402189597}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -100,11 +100,11 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &7238362849144102165
+--- !u!114 &-2741835480402189597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7156e485c4ce66442a1f0e81c71ccea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   deathEffect: {fileID: 3608868986246828560, guid: a279227447a998e4fa047848a3294618,
     type: 3}
 --- !u!1 &3513707101167388508

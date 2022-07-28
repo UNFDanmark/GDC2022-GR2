@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    public float speed; 
+    //public float speed; 
 
-    Rigidbody rb;
+    //Rigidbody rb;
     public GameObject deathEffect;
 
-    void Start()
+    /*void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         rb.velocity = Vector3.down * speed;
-    }
+    }*/
 
     public void DestroyStar(bool playEffect)
     {
