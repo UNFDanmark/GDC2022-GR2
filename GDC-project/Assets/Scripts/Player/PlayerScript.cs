@@ -25,11 +25,12 @@ public class PlayerScript : MonoBehaviour
     bool firstJump = true;
     bool starHit = false;
     bool isAttacking = false;
+    bool isDead = false;
 
     public GameObject highscoreSaver;
     public List<GameObject> stillframes;
 
-    [SerializeField] PointsManager pm;
+    PointsManager pm;
     Rigidbody rb;
     SceneHandler sceneHandler;
 
@@ -54,8 +55,11 @@ public class PlayerScript : MonoBehaviour
         previousPos = transform.position;
 
         //Move and attack
-        MoveHandler();
-        AttackHandler();
+        if (!isDead)
+        {
+            MoveHandler();
+            AttackHandler();
+        }
         HandleVisuals();
     }
 
@@ -123,6 +127,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         GameObject.FindWithTag("Soundguy").GetComponent<AudioSource>().Stop();
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position);
         //pm.SetTextsAsNull();
@@ -167,6 +172,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            isAttacking = false;
             if (!starHit)
             {
                 firstJump = true;

@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
+    public bool restartOnReturn = false;
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Return) && restartOnReturn)
         {
             RestartScene();
         }
